@@ -22,6 +22,12 @@ class ApartmentsController < ApplicationController
     render json: apartment, status: :created
   end
 
+  def destroy
+    apartment = find_apartment
+    apartment.destroy
+    head :no_content
+  end
+
   private
 
   def find_apartment
